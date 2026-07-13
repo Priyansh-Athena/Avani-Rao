@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6199774919327427134}
   - component: {fileID: 7036273971673441691}
   - component: {fileID: 5062374375806521681}
+  - component: {fileID: 8824957061820560087}
   m_Layer: 0
   m_Name: cb-apartment-B
   m_TagString: Untagged
@@ -84,3 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8824957061820560087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6719888361061052548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.4818773, y: 19.06117, z: 7.4818783}
+  m_Center: {x: 0, y: 9.530585, z: 0.00000047683716}

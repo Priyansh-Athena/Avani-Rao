@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6744083956972815724}
   - component: {fileID: 7653893086485514953}
   - component: {fileID: 5610606059562040835}
+  - component: {fileID: -5199521126385694987}
   m_Layer: 0
   m_Name: suburban-house-B
   m_TagString: Untagged
@@ -84,3 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-5199521126385694987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258908420346666966}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.565262, y: 9.038782, z: 10.706188}
+  m_Center: {x: -0.45363975, y: 4.519391, z: 0.8481858}

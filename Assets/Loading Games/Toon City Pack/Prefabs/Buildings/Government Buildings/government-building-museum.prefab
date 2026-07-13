@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1982779647659905449}
   - component: {fileID: 3182888253819428364}
   - component: {fileID: 850920059835214534}
+  - component: {fileID: -12871181481068562}
   m_Layer: 0
   m_Name: government-building-museum
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-12871181481068562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211449853080816403}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 18.197105, y: 11.973376, z: 10.717616}
+  m_Center: {x: 0, y: 5.986688, z: 1.7329979}
