@@ -1,0 +1,14 @@
+A - increase volume
+X - decrease volume
+B - Joystick button 1
+Y - Joystick button 10
+
+Trigger Long - Joystick button 14
+Trigger Short - Joystick button 0
+
+@ Long- Joystick button 0
+@ Short - Joystick 1 button 14
+
+power = Joystick button 11
+
+Joystick - Vertical +/- 1, Horizontal +/- 1
