@@ -17,7 +17,11 @@ public class TargetPop : MonoBehaviour
     )]
     [SerializeField] private Transform[] spawnObjects = new Transform[5];
 
-    [Header("UI")]
+    [Header("Start UI")]
+    [Tooltip("Assign the panel containing the instructions and Start button.")]
+    [SerializeField] private GameObject startPanel;
+
+    [Header("Gameplay UI")]
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text livesText;
@@ -63,14 +67,12 @@ public class TargetPop : MonoBehaviour
 
     [Header("Controller Input")]
     [SerializeField]
-    private KeyCode shortTriggerButton =
-        KeyCode.JoystickButton0;
+    private KeyCode shortTriggerButton = KeyCode.JoystickButton0;
 
     [SerializeField] private bool acceptLongTriggerAsPop = true;
 
     [SerializeField]
-    private KeyCode longTriggerButton =
-        KeyCode.JoystickButton14;
+    private KeyCode longTriggerButton = KeyCode.JoystickButton14;
 
     [Tooltip("Allows testing with the mouse inside the Unity Editor.")]
     [SerializeField] private bool allowMouseClick = true;
@@ -112,6 +114,8 @@ public class TargetPop : MonoBehaviour
     private int currentMisses;
 
     private float gameStartTime;
+
+    private bool gameStarted;
     private bool gameOver;
 
     private Coroutine spawnCoroutine;
@@ -142,14 +146,23 @@ public class TargetPop : MonoBehaviour
         }
 
         highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+
+        currentScore = 0;
         currentLives = startingLives;
         currentMisses = 0;
-        currentScore = 0;
+
+        gameStarted = false;
+        gameOver = false;
 
         int spawnCount =
             spawnObjects != null ? spawnObjects.Length : 0;
 
         occupiedSpawnPoints = new bool[spawnCount];
+
+        if (startPanel != null)
+        {
+            startPanel.SetActive(true);
+        }
 
         if (gameOverPanel != null)
         {
@@ -165,16 +178,16 @@ public class TargetPop : MonoBehaviour
             return;
         }
 
-        gameStartTime = Time.time;
-
+        /*
+         * Only prepare the game here.
+         * Ball spawning starts when StartGame() is called.
+         */
         UpdateUI();
-
-        spawnCoroutine = StartCoroutine(SpawnBallRoutine());
     }
 
     private void Update()
     {
-        if (gameOver)
+        if (!gameStarted || gameOver)
         {
             return;
         }
@@ -185,6 +198,52 @@ public class TargetPop : MonoBehaviour
         }
 
         CheckForMissedBalls();
+    }
+
+    /// <summary>
+    /// Attach this function to the Start button's UnityEvent.
+    /// </summary>
+    public void StartGame()
+    {
+        if (gameStarted || gameOver)
+        {
+            return;
+        }
+
+        gameStarted = true;
+        gameStartTime = Time.time;
+
+        if (startPanel != null)
+        {
+            startPanel.SetActive(false);
+        }
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
+
+        if (spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+        }
+
+        spawnCoroutine = StartCoroutine(SpawnBallRoutine());
+    }
+
+    /// <summary>
+    /// Attach this function to the Restart button's UnityEvent.
+    /// </summary>
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+
+        DOTween.KillAll();
+
+        Scene currentScene =
+            SceneManager.GetActiveScene();
+
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 
     private bool ValidateReferences()
@@ -268,8 +327,7 @@ public class TargetPop : MonoBehaviour
         if (prefabCollider == null)
         {
             Debug.LogError(
-                "Target Pop: The Ball Prefab requires a Collider " +
-                "for gaze raycast interaction."
+                "Target Pop: The Ball Prefab requires a Collider."
             );
 
             return false;
@@ -282,7 +340,7 @@ public class TargetPop : MonoBehaviour
     {
         yield return new WaitForSeconds(firstBallDelay);
 
-        while (!gameOver)
+        while (gameStarted && !gameOver)
         {
             int availableSpawnIndex = GetAvailableSpawnIndex();
 
@@ -295,6 +353,8 @@ public class TargetPop : MonoBehaviour
                 GetCurrentSpawnInterval()
             );
         }
+
+        spawnCoroutine = null;
     }
 
     private int GetAvailableSpawnIndex()
@@ -357,21 +417,13 @@ public class TargetPop : MonoBehaviour
 
         occupiedSpawnPoints[spawnIndex] = true;
 
-        /*
-         * Store the actual prefab scale.
-         *
-         * For example:
-         * Prefab scale = 0.5
-         * Start scale = 0.05
-         * End scale = 0.5
-         */
-        Vector3 originalScale = ballTransform.localScale;
+        Vector3 originalScale =
+            ballTransform.localScale;
 
         Vector3 startingScale =
             originalScale * spawnStartScaleMultiplier;
 
         ballTransform.DOKill();
-
         ballTransform.localScale = startingScale;
 
         ApplyRandomBrightColor(newBall);
@@ -386,12 +438,14 @@ public class TargetPop : MonoBehaviour
 
         ballRigidbody.isKinematic = false;
         ballRigidbody.useGravity = true;
-
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.angularVelocity = Vector3.zero;
 
-        float sideImpulse = GetCurrentSideImpulse();
-        float upwardImpulse = GetCurrentUpwardImpulse();
+        float sideImpulse =
+            GetCurrentSideImpulse();
+
+        float upwardImpulse =
+            GetCurrentUpwardImpulse();
 
         Vector3 throwDirection = new Vector3(
             Random.Range(-sideImpulse, sideImpulse),
@@ -457,11 +511,6 @@ public class TargetPop : MonoBehaviour
 
             ballRenderer.GetPropertyBlock(propertyBlock);
 
-            /*
-             * _BaseColor is used by URP Lit.
-             * _Color is used by the Standard shader and
-             * several other shaders.
-             */
             propertyBlock.SetColor(
                 "_BaseColor",
                 brightColor
@@ -596,7 +645,6 @@ public class TargetPop : MonoBehaviour
         {
             ball.rigidbody.velocity = Vector3.zero;
             ball.rigidbody.angularVelocity = Vector3.zero;
-
             ball.rigidbody.isKinematic = true;
             ball.rigidbody.useGravity = false;
         }
@@ -753,7 +801,8 @@ public class TargetPop : MonoBehaviour
 
     private int GetDifficultyLevel()
     {
-        if (difficultyIncreaseEvery <= 0f)
+        if (!gameStarted ||
+            difficultyIncreaseEvery <= 0f)
         {
             return 0;
         }
@@ -768,7 +817,8 @@ public class TargetPop : MonoBehaviour
 
     private float GetCurrentSpawnInterval()
     {
-        int difficultyLevel = GetDifficultyLevel();
+        int difficultyLevel =
+            GetDifficultyLevel();
 
         return Mathf.Max(
             minimumSpawnInterval,
@@ -779,7 +829,8 @@ public class TargetPop : MonoBehaviour
 
     private float GetCurrentUpwardImpulse()
     {
-        int difficultyLevel = GetDifficultyLevel();
+        int difficultyLevel =
+            GetDifficultyLevel();
 
         return startingUpwardImpulse +
                difficultyLevel * upwardImpulseIncrease;
@@ -787,7 +838,8 @@ public class TargetPop : MonoBehaviour
 
     private float GetCurrentSideImpulse()
     {
-        int difficultyLevel = GetDifficultyLevel();
+        int difficultyLevel =
+            GetDifficultyLevel();
 
         return Mathf.Min(
             maximumSideImpulse,
@@ -825,6 +877,7 @@ public class TargetPop : MonoBehaviour
         }
 
         gameOver = true;
+        gameStarted = false;
 
         if (spawnCoroutine != null)
         {
@@ -892,18 +945,8 @@ public class TargetPop : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
         }
-    }
 
-    public void RestartGame()
-    {
-        DOTween.KillAll();
-
-        Scene currentScene =
-            SceneManager.GetActiveScene();
-
-        SceneManager.LoadScene(
-            currentScene.buildIndex
-        );
+        UpdateUI();
     }
 
     public void ResetSavedHighScore()
