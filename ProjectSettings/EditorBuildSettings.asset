@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_MAIN_/Scenes/Museum.unity
+    path: Assets/_MAIN_/Scenes/Entry.unity
+    guid: 304420f63b4038242ae0c73197217c2a
+  - enabled: 1
+    path: Assets/_MAIN_/Scenes/Coin Hall.unity
     guid: 9f6a4346922fc7d43becb262070d333e
+  - enabled: 1
+    path: Assets/_MAIN_/Scenes/Figurines Hall.unity
+    guid: c45f09b8e283bfd4c92d1b117bf7755f
+  - enabled: 1
+    path: Assets/_MAIN_/Scenes/Weapon Hall.unity
+    guid: 21135af5ff85d83468fc2e793cc1abac
   - enabled: 1
     path: Assets/_MAIN_/Scenes/Target Pop.unity
     guid: 99c9720ab356a0642a771bea13969a05

@@ -1760,7 +1760,7 @@ PrefabInstance:
     - target: {fileID: 2232772951574995745, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Museum
+      value: Coin Hall
       objectReference: {fileID: 0}
     - target: {fileID: 2450622504903900217, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
@@ -1785,7 +1785,7 @@ PrefabInstance:
     - target: {fileID: 2450622504903900217, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Museum
+      value: Coin Hall
       objectReference: {fileID: 0}
     - target: {fileID: 2514514267504203660, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}

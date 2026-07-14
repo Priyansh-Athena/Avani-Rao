@@ -1,7 +1,9 @@
 using DG.Tweening;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public AudioSource footSteps;
     private Rigidbody rb;
+
+    public string gameScene, hall1Scene, hall2Scene;
 
 
     private void Awake()
@@ -25,15 +29,6 @@ public class PlayerController : MonoBehaviour
         // Get joystick input
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
-
-        if (verticalInput != 0 || horizontalInput != 0)
-        {
-            footSteps.Play();
-        }
-        else
-        {
-            footSteps.Pause();
-        }
 
         // Get camera forward and right vectors, flattened to the XZ plane
         Vector3 camForward = cameraTransform.forward;
@@ -69,5 +64,29 @@ public class PlayerController : MonoBehaviour
     public void OnPointerClick()
     {
         // ...existing code...
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.name.Equals("_Exit"))
+        {
+#if UNITY_EDITOR 
+            EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+        else if (other.gameObject.name.Equals(gameScene))
+        {
+            SceneManager.LoadScene(gameScene);
+        }
+        else if (other.gameObject.name.Equals(hall1Scene))
+        {
+            SceneManager.LoadScene(hall1Scene);
+        }
+        else if (other.gameObject.name.Equals(hall2Scene))
+        {
+            SceneManager.LoadScene(hall2Scene);
+        }
     }
 }
