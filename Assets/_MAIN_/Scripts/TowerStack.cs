@@ -434,7 +434,7 @@ public class TowerStack : MonoBehaviour
 
         currentBlockRigidbody.isKinematic = true;
         currentBlockRigidbody.useGravity = false;
-        currentBlockRigidbody.velocity = Vector3.zero;
+        currentBlockRigidbody.linearVelocity = Vector3.zero;
         currentBlockRigidbody.angularVelocity = Vector3.zero;
 
         currentBlockRigidbody.constraints =
@@ -616,7 +616,7 @@ public class TowerStack : MonoBehaviour
 
         currentBlockRigidbody.isKinematic = false;
         currentBlockRigidbody.useGravity = true;
-        currentBlockRigidbody.velocity = Vector3.zero;
+        currentBlockRigidbody.linearVelocity = Vector3.zero;
     }
 
     private void CheckDroppedBlock()
@@ -642,7 +642,7 @@ public class TowerStack : MonoBehaviour
 
         bool movingDownward =
             currentBlockRigidbody == null ||
-            currentBlockRigidbody.velocity.y <= 0.1f;
+            currentBlockRigidbody.linearVelocity.y <= 0.1f;
 
         if (reachedTowerHeight && movingDownward)
         {
@@ -768,7 +768,7 @@ public class TowerStack : MonoBehaviour
 
         Physics.SyncTransforms();
 
-        currentBlockRigidbody.velocity =
+        currentBlockRigidbody.linearVelocity =
             Vector3.zero;
 
         currentBlockRigidbody.angularVelocity =

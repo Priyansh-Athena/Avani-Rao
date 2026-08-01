@@ -438,7 +438,7 @@ public class TargetPop : MonoBehaviour
 
         ballRigidbody.isKinematic = false;
         ballRigidbody.useGravity = true;
-        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.linearVelocity = Vector3.zero;
         ballRigidbody.angularVelocity = Vector3.zero;
 
         float sideImpulse =
@@ -643,7 +643,7 @@ public class TargetPop : MonoBehaviour
 
         if (ball.rigidbody != null)
         {
-            ball.rigidbody.velocity = Vector3.zero;
+            ball.rigidbody.linearVelocity = Vector3.zero;
             ball.rigidbody.angularVelocity = Vector3.zero;
             ball.rigidbody.isKinematic = true;
             ball.rigidbody.useGravity = false;
