@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
+using TMPro;
 using UnityEngine;
 
 public class KeyCodeLogger : MonoBehaviour
 {
+    [SerializeField] private TMP_Text keysTxt;
+
     private KeyCode[] keyCodes;
 
     private readonly string[] axisNames =
@@ -16,10 +20,17 @@ public class KeyCodeLogger : MonoBehaviour
     };
 
     private readonly HashSet<string> missingAxes = new HashSet<string>();
+    private readonly Queue<LogEntry> recentKeys = new Queue<LogEntry>();
+    private readonly StringBuilder display = new StringBuilder();
+
+    private struct LogEntry
+    {
+        public float time;
+        public string message;
+    }
 
     private void Awake()
     {
-        // Remove duplicate enum values (some KeyCodes have aliases).
         var uniqueKeys = new HashSet<KeyCode>(
             (KeyCode[])Enum.GetValues(typeof(KeyCode))
         );
@@ -31,16 +42,35 @@ public class KeyCodeLogger : MonoBehaviour
 
     private void Update()
     {
-        // Includes keyboard keys, mouse buttons, and joystick buttons.
+        float now = Time.unscaledTime;
+
         foreach (KeyCode key in keyCodes)
         {
             if (Input.GetKeyDown(key))
             {
-                Debug.Log($"KeyCode.{key} pressed — value: {(int)key}");
+                recentKeys.Enqueue(new LogEntry
+                {
+                    time = now,
+                    message = $"KeyCode.{key} pressed — value: {(int)key}"
+                });
             }
         }
 
-        // Try common Unity axes.
+        // Keep every key press from the previous one second.
+        while (recentKeys.Count > 0 &&
+               now - recentKeys.Peek().time >= 1f)
+        {
+            recentKeys.Dequeue();
+        }
+
+        display.Clear();
+
+        foreach (LogEntry entry in recentKeys)
+        {
+            display.AppendLine(entry.message);
+        }
+
+        // Show current axis values without adding a log every frame.
         foreach (string axis in axisNames)
         {
             if (missingAxes.Contains(axis))
@@ -60,8 +90,13 @@ public class KeyCodeLogger : MonoBehaviour
 
             if (Mathf.Abs(value) > 0.1f)
             {
-                Debug.Log($"{axis}: {value}");
+                display.AppendLine($"{axis}: {value:F3}");
             }
+        }
+
+        if (keysTxt != null)
+        {
+            keysTxt.text = display.ToString();
         }
     }
 }
