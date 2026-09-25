@@ -692,7 +692,7 @@ public class InfiniteDodge : MonoBehaviour
         float horizontalInput =
             Input.GetAxisRaw(
                 horizontalAxisName
-            );
+            ) + Input.GetAxisRaw("Mouse X");
 
         if (invertHorizontalInput)
         {

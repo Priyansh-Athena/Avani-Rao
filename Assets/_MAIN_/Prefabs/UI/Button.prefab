@@ -190,3 +190,5 @@ MonoBehaviour:
       m_Calls: []
   useHoverScale: 0
   hoverScaleMultiplier: 1.08
+  primaryControllerButton: 350
+  alternateControllerButton: 364

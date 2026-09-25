@@ -67,12 +67,12 @@ public class TargetPop : MonoBehaviour
 
     [Header("Controller Input")]
     [SerializeField]
-    private KeyCode shortTriggerButton = KeyCode.JoystickButton0;
+    private KeyCode shortTriggerButton = KeyCode.Joystick1Button0;
 
     [SerializeField] private bool acceptLongTriggerAsPop = true;
 
     [SerializeField]
-    private KeyCode longTriggerButton = KeyCode.JoystickButton14;
+    private KeyCode longTriggerButton = KeyCode.Joystick1Button14;
 
     [Tooltip("Allows testing with the mouse inside the Unity Editor.")]
     [SerializeField] private bool allowMouseClick = true;

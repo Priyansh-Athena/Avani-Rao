@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Get joystick input
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
+        // Combine existing joystick/keyboard axes with mouse movement.
+        float verticalInput = Input.GetAxis("Vertical") + Input.GetAxis("Mouse Y");
+        float horizontalInput = Input.GetAxis("Horizontal") + Input.GetAxis("Mouse X");
 
         // Get camera forward and right vectors, flattened to the XZ plane
         Vector3 camForward = cameraTransform.forward;

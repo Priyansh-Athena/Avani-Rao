@@ -161,6 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3594704673237784021, guid: 54438b668b5567d4aa1686a770969832,
         type: 3}
+      propertyPath: primaryControllerButton
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594704673237784021, guid: 54438b668b5567d4aa1686a770969832,
+        type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1441952268}
@@ -290,6 +295,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2232772951574995745, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
+      propertyPath: primaryControllerButton
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232772951574995745, guid: 08622c632bc46bb4e9678c4d70e225a3,
+        type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
@@ -311,7 +321,7 @@ PrefabInstance:
     - target: {fileID: 2232772951574995745, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Museum
+      value: Weapon Hall
       objectReference: {fileID: 0}
     - target: {fileID: 2450622504903900217, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
@@ -336,7 +346,7 @@ PrefabInstance:
     - target: {fileID: 2450622504903900217, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Museum
+      value: Weapon Hall
       objectReference: {fileID: 0}
     - target: {fileID: 2514514267504203660, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
@@ -462,6 +472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320986928278474290, guid: 08622c632bc46bb4e9678c4d70e225a3,
+        type: 3}
+      propertyPath: primaryControllerButton
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 7320986928278474290, guid: 08622c632bc46bb4e9678c4d70e225a3,
         type: 3}
@@ -1482,7 +1497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 723926960, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: ReticleInteractionLayerMask.m_Bits
-      value: 0
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 723926960, guid: 15fcd94adb15b48f7bb4a80622ae7046, type: 3}
       propertyPath: RecticleInteractionLayerMask.m_Bits

@@ -125,14 +125,14 @@ public class TowerStack : MonoBehaviour
 
     [SerializeField]
     private KeyCode primaryControllerButton =
-        KeyCode.JoystickButton0;
+        KeyCode.Joystick1Button0;
 
     [SerializeField]
     private bool acceptAlternateControllerButton = true;
 
     [SerializeField]
     private KeyCode alternateControllerButton =
-        KeyCode.JoystickButton14;
+        KeyCode.Joystick1Button14;
 
     [Tooltip("Allows testing using the mouse in the Unity Editor.")]
     [SerializeField] private bool allowMouseClick = true;

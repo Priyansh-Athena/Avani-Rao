@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_MAIN_/Scenes/Tower Stack.unity
     guid: 93bf3dddeca10ea48a70017e6d338e29
+  - enabled: 1
+    path: Assets/_MAIN_/Scenes/Controller Test.unity
+    guid: d5c25fc14edf4502aa7abbb60b924adf
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6dca7336bde1eb044a1c9130c9f40f24,
       type: 2}
