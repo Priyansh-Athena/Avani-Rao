@@ -41,7 +41,8 @@ public class CardboardVRButton : MonoBehaviour
 
         if (Input.GetKeyDown(primaryControllerButton) ||
             Input.GetKeyDown(alternateControllerButton) ||
-            (acceptMouseClick && Input.GetMouseButtonDown(0)))
+            (acceptMouseClick && Input.GetMouseButtonDown(0)) ||
+            MobileTriggerSimulator.PressedThisFrame)
         {
             OnPointerClick();
         }

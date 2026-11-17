@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Indian Statue
   m_EditorClassIdentifier: 
-  artifactName: Indian Statue
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Narasimha Panel, Belur
+  description: Narasimha Panel, Chennakeshava Temple, Belur. Vishnu's man-lion avatar
+    is carved on the temple walls, tearing apart the demon king Hiranyakashipu.
   category: 1
-  scoreNeededToUnlock: 2000
+  scoreNeededToUnlock: 400
   canUnlock: 0
   isUnlocked: 0

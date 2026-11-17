@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Curved Ornamental Sword
   m_EditorClassIdentifier: 
-  artifactName: Curved Ornamental Sword
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Tipu's Bedchamber Sword
+  description: "Tipu Sultan's Bedchamber Sword. Found in his private quarters after
+    the 1799 siege, its hilt is inlaid with gold calligraphy. It sold for \xA314
+    million."
   category: 2
-  scoreNeededToUnlock: 500
+  scoreNeededToUnlock: 100
   canUnlock: 0
   isUnlocked: 0

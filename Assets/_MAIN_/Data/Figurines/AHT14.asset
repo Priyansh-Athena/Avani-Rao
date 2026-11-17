@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: AHT14
   m_EditorClassIdentifier: 
-  artifactName: AHT14
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Chennakeshava (Vishnu), Belur
+  description: Chennakeshava, Belur. The temple is dedicated to "handsome Vishnu"
+    and was completed in 1116 by the Hoysala king Vishnuvardhana.
   category: 1
-  scoreNeededToUnlock: 500
+  scoreNeededToUnlock: 100
   canUnlock: 0
   isUnlocked: 0

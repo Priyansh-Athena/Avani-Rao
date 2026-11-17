@@ -540,7 +540,7 @@ public class TargetPop : MonoBehaviour
             allowMouseClick &&
             Input.GetMouseButtonDown(0);
 
-        return controllerPressed || mousePressed;
+        return controllerPressed || mousePressed || MobileTriggerSimulator.PressedThisFrame;
     }
 
     private void TryPopLookedAtBall()

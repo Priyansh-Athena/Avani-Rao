@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Hoysala Sculpture
   m_EditorClassIdentifier: 
-  artifactName: Hoysala Sculpture
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Hoysala Emblem
+  description: Hoysala Emblem, Belur. Sala kills a tiger when his Jain guru cries
+    "Hoy, Sala!", giving the dynasty its name. The tiger may stand for the Cholas.
   category: 1
-  scoreNeededToUnlock: 1500
+  scoreNeededToUnlock: 300
   canUnlock: 0
   isUnlocked: 0

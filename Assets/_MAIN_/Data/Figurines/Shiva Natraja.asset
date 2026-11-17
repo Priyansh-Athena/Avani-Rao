@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Shiva Natraja
   m_EditorClassIdentifier: 
-  artifactName: Shiva Natraja
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Dancing Shiva, Halebidu
+  description: Dancing Shiva, Hoysaleswara Temple, Halebidu, 12th c. The twin shrines
+    honour Shiva and Parvati, and dance and music dominate the carvings.
   category: 1
-  scoreNeededToUnlock: 3500
+  scoreNeededToUnlock: 600
   canUnlock: 0
   isUnlocked: 0

@@ -600,7 +600,7 @@ public class TowerStack : MonoBehaviour
         }
 #endif
 
-        return pressed;
+        return pressed || MobileTriggerSimulator.PressedThisFrame;
     }
 
     private void DropCurrentBlock()

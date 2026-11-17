@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: S18
   m_EditorClassIdentifier: 
-  artifactName: S18
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Dancer Panel, Belur
+  description: Dancer Panel, Chennakeshava Temple, Belur. Queen Shantala Devi was
+    a celebrated dancer, and her poses are carved on the temple among thousands of
+    dancing figures.
   category: 1
-  scoreNeededToUnlock: 2500
+  scoreNeededToUnlock: 500
   canUnlock: 0
   isUnlocked: 0

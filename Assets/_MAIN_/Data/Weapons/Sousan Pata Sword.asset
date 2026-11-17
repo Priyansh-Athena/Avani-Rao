@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Sousan Pata Sword
   m_EditorClassIdentifier: 
-  artifactName: Sousan Pata Sword
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Tipu Sultan's Sword
+  description: "Tipu Sultan's Sword, Srirangapatna, c.1782\u201399. A curved Mysore
+    blade with a gilded hilt. Tipu covered his arms with tigers and tiger stripes,
+    his royal emblem."
   category: 2
-  scoreNeededToUnlock: 1500
+  scoreNeededToUnlock: 300
   canUnlock: 0
   isUnlocked: 0

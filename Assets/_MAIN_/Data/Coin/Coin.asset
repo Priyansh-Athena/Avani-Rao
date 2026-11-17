@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f29110974546c45b374bebf85c79f2, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  artifactName: Coin Artifact
-  description: "Artifact description will go here. \nArtifact description will go
-    here. \nArtifact description will go here. \nArtifact description will go here.
-    \nArtifact description will go here. \nArtifact description will go here. \nArtifact
-    description will go here. "
+  artifactName: Gandaberunda Gold Pagoda
+  description: "Gandaberunda Gold Pagoda, Achyutaraya, Vijayanagara, 1530\u201342.
+    A double-headed eagle grips an elephant in each beak and claw, with a Devanagari
+    legend on the back."
   category: 0
   scoreNeededToUnlock: 100
   canUnlock: 0
